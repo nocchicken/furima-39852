@@ -77,7 +77,7 @@
 - belongs_to :users
 - belongs_to :categories
 - belongs_to :brands
-- has_many :images
+- has_many   :images
 - belongs_to_active_hash :prefecture
 
 ## images テーブル
