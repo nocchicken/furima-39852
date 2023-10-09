@@ -31,7 +31,6 @@
 | buyer            | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :user
 - belongs_to :buyer
 
 
@@ -56,14 +55,14 @@
 | price           | integer    | null: false                    |
 | explanation     | text       | null: false                    |
 | status_id       | integer    | null: false                    |
-| judgment_id     | integer    |                                |
+| judgment_id     | integer    | null: false                    |
 | shipping_day_id | integer    | null: false                    |
 | category_id     | integer    | null: false                    |
 | brand_id        | integer    | null: false                    |
+| prefecture_id   | integer    | null: false                    |
 | user            | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
-- has_one :buyer
 - has_one :address
 
