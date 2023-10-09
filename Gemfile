@@ -85,3 +85,4 @@ end
 
 gem 'payjp'
 gem 'gon'
+gem 'active_hash'
