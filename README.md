@@ -15,8 +15,7 @@
 
 ### Association
 - has_many :items
-- belongs_to :buyer
-- belongs_to :card
+- has_many :buyers
 
 
 ## addresses テーブル
@@ -33,13 +32,14 @@
 
 ### Association
 - belongs_to :user
+- has_many :buyers
 
 ## buyers テーブル
 
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| user_id | references | null: false, foreign_key: true |
-| item_id | references | null: false, foreign_key: true |
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| user   | references | null: false, foreign_key: true |
+| item   | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
@@ -55,16 +55,12 @@
 | explanation | text       | null: false                    |
 | status_id   | integer    | null: false                    |
 | judgment_id | string     |                                |
-| size        | string     | null: false                    |
 | days_id     | string     | null: false                    |
 | category_id | integer    | null: false                    |
 | brand_id    | integer    | null: false                    |
-| user_id     | references | null: false, foreign_key: true |
+| user        | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
-- belongs_to :category
-- belongs_to :brand
-- belongs_to :prefecture, foreign_key: :status_id
-- belongs_to :prefecture, foreign_key: :judgment_id
-- belongs_to :prefecture, foreign_key: :days_id
+- has_many :buyers
+
