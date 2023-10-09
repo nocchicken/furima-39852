@@ -15,7 +15,7 @@
 
 ### Association
 - has_many :items
-- has_many :buyers
+- has_one :buyer
 
 
 ## addresses テーブル
@@ -55,7 +55,6 @@
 | price           | integer    | null: false                    |
 | explanation     | text       | null: false                    |
 | status_id       | integer    | null: false                    |
-| judgment_id     | integer    | null: false                    |
 | shipping_day_id | integer    | null: false                    |
 | category_id     | integer    | null: false                    |
 | brand_id        | integer    | null: false                    |
