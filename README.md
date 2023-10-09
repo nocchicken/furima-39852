@@ -53,10 +53,10 @@
 | name        | string     | null: false                    |
 | price       | integer    | null: false                    |
 | explanation | text       | null: false                    |
-| status      | string     | null: false                    |
-| judgment    | string     |                                |
+| status_id   | integer    | null: false                    |
+| judgment_id | string     |                                |
 | size        | string     | null: false                    |
-| days        | string     | null: false                    |
+| days_id     | string     | null: false                    |
 | category_id | integer    | null: false                    |
 | brand_id    | integer    | null: false                    |
 | user_id     | references | null: false, foreign_key: true |
@@ -65,4 +65,6 @@
 - belongs_to :user
 - belongs_to :category
 - belongs_to :brand
-- belongs_to :prefecture
+- belongs_to :prefecture, foreign_key: :status_id
+- belongs_to :prefecture, foreign_key: :judgment_id
+- belongs_to :prefecture, foreign_key: :days_id
