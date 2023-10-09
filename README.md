@@ -23,7 +23,7 @@
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
 | post_code        | string     | null: false                    |
-| prefecture_id    | string     | null: false                    |
+| prefecture_id    | integer    | null: false                    |
 | city             | string     | null: false                    |
 | address          | string     | null: false                    |
 | building_name    | string     |                                |
@@ -32,7 +32,8 @@
 
 ### Association
 - belongs_to :user
-- has_many :buyers
+- belongs_to :buyer
+
 
 ## buyers テーブル
 
@@ -44,23 +45,25 @@
 ### Association
 - belongs_to :user
 - belongs_to :item
+- has_one :address
 
 
 ## items テーブル
 
-| Column      | Type       | Options                        |
-| ----------- | ---------- | ------------------------------ |
-| name        | string     | null: false                    |
-| price       | integer    | null: false                    |
-| explanation | text       | null: false                    |
-| status_id   | integer    | null: false                    |
-| judgment_id | string     |                                |
-| days_id     | string     | null: false                    |
-| category_id | integer    | null: false                    |
-| brand_id    | integer    | null: false                    |
-| user        | references | null: false, foreign_key: true |
+| Column          | Type       | Options                        |
+| --------------- | ---------- | ------------------------------ |
+| name            | string     | null: false                    |
+| price           | integer    | null: false                    |
+| explanation     | text       | null: false                    |
+| status_id       | integer    | null: false                    |
+| judgment_id     | integer    |                                |
+| shipping_day_id | integer    | null: false                    |
+| category_id     | integer    | null: false                    |
+| brand_id        | integer    | null: false                    |
+| user            | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
-- has_many :buyers
+- has_one :buyer
+- has_one :address
 
