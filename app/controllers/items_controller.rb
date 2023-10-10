@@ -1,5 +1,4 @@
 class ItemsController < ApplicationController
-  Rails.application.routes.draw do
-    root 'items#index'
+  def index
   end
 end
