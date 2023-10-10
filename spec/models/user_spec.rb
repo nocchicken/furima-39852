@@ -90,6 +90,18 @@ RSpec.describe User, type: :model do
       @user.valid?
       expect(@user.errors.full_messages).to include ("First name kana can't be blank")
     end
+    it "last_nameに半角文字が含まれていると登録できない" do
+  @user.last_name = 'Smith' # 例として半角文字を設定
+  @user.valid?
+  expect(@user.errors.full_messages).to include("Last name Input full-width characters")
+end
+
+it "first_nameに半角文字が含まれていると登録できない" do
+  @user.first_name = 'John' # 例として半角文字を設定
+  @user.valid?
+  expect(@user.errors.full_messages).to include("First name Input full-width characters")
+end
+    
     it "birthdayが空では登録ができない" do
       @user.birthday = ''
       @user.valid?
@@ -106,6 +118,5 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include ("First name kana is invalid. Input full-width katakana characters")
     end
    end
-
   end
 end
