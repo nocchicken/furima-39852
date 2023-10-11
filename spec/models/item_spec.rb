@@ -36,14 +36,14 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
       it '商品の状態が---では出品できない' do
-        @item.condition_id = '1'
+        @item.status_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Condition can't be blank")
+        expect(@item.errors.full_messages).to include("Status can't be blank")
       end
       it '配達料の負担が---では出品できない' do
-        @item.derivery_cost_id = '1'
+        @item.brand_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Derivery cost can't be blank")
+        expect(@item.errors.full_messages).to include("Brand can't be blank")
       end
       it '発送元の地域が---では出品できない' do
         @item.prefecture_id = '1'
@@ -51,9 +51,9 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
       it '発送までの日数が---では出品できない' do
-        @item.sending_date_id = '1'
+        @item.shipping_day_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Sending date can't be blank")
+        expect(@item.errors.full_messages).to include("Shipping day can't be blank")
       end
       it '価格が空では出品できない' do
         @item.price = ''
@@ -71,15 +71,17 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include('Price is not a number')
       end
       it '価格が300円未満では出品できない' do
-        @item.price = '299'
+        @item.price = 299
         @item.valid?
-        expect(@item.errors.full_messages).to include('Price must be in 300..9999999')
+        expect(@item.errors.full_messages).to include('Price must be greater than or equal to 300')
       end
+      
       it '価格が10,000,000円以上では出品できない' do
-        @item.price = '10000000'
+        @item.price = 10_000_000
         @item.valid?
-        expect(@item.errors.full_messages).to include('Price must be in 300..9999999')
+        expect(@item.errors.full_messages).to include('Price must be less than or equal to 9999999')
       end
+      
     end
   end
 end
