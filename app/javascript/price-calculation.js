@@ -1,9 +1,14 @@
 window.addEventListener('turbo:load', () => {
-  const itemPrice = document.getElementById("item-price");
-  itemPrice.addEventListener("input", () => {
-    const addTaxPrice = document.getElementById("add-tax-price")
-    const profit = document.getElementById("profit")
-    addTaxPrice.innerHTML = `${Math.floor(itemPrice.value * 0.1).toLocaleString()}`
-    profit.innerHTML = `${Math.floor(itemPrice.value - itemPrice.value * 0.1).toLocaleString()}`
-    });
-});
+
+  const priceInput = document.getElementById("item-price");
+    priceInput.addEventListener("input", () => {
+    const inputValue = priceInput.value;
+  
+    const addTaxDom = document.getElementById("add-tax-price");
+      addTaxDom.innerHTML = Math.floor(priceInput.value * 0.1 );
+  
+    const addPofitDom = document.getElementById("profit");
+      addPofitDom.innerHTML = Math.floor(priceInput.value - Math.floor(priceInput.value * 0.1 ));
+  })
+  
+  })
