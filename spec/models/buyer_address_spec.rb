@@ -56,10 +56,10 @@ RSpec.describe BuyerAddress, type: :model do
       it 'phone_numberが空だと購入できない' do
         @buyer_address.phone_number = ''
         @buyer_address.valid?
-        expect(@buyer_address.errors.full_messages).to include("Phone number is invalid")
+        expect(@buyer_address.errors.full_messages).to include("Phone number can't be blank")
       end
       it 'phone_numberが全角文字では購入できない' do
-        @buyer_address.phone_number = ''
+        @buyer_address.phone_number = '１２３４５６７８９０'
         @buyer_address.valid?
         expect(@buyer_address.errors.full_messages).to include("Phone number is invalid")
       end
