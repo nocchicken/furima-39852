@@ -1,9 +1,9 @@
-class OrdersController < ApplicationController
+# class OrdersController < ApplicationController
 
-  def index
-    # gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
-    # @order = Order.new
-  end
+#   def index
+#     # gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
+#     # @order = Order.new
+#   end
 
   # def create
   #   @order = Order.new(order_params)
